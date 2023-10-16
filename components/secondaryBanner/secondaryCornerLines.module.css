@@ -1,0 +1,55 @@
+.rightUpperVar1 {
+    border-top: 0px solid transparent;
+	border-right: 150px solid #5E859E;
+	border-bottom: 150px solid transparent;
+    z-index: 4;
+    top: 0%;
+    right: 0%;
+    position: absolute;
+  }
+  .rightUpperVar2{
+    border-top: 0px solid transparent;
+	border-right: 250px solid #8CB1B0;
+	border-bottom: 250px solid transparent;
+    z-index: 3;
+    top: 0%;
+    right: 0%;
+    position: absolute;
+  }
+  .rightUpperVar3{
+    border-top: 0px solid transparent;
+	border-right: 350px solid #C2CFE1;
+    border-bottom: 350px solid transparent;
+    z-index: 2;
+    top: 0%;
+    right: 0%;
+    position: absolute;
+  }
+
+  .leftLowerVar1{
+    border-left: 0 solid ;
+	  border-right: 150px solid transparent;
+	  border-bottom: 150px solid #5E859E;
+    z-index: 4;
+    bottom: 20%;
+    left:0%;
+    position: absolute;
+  }
+  .leftLowerVar2{
+    border-left: 0 solid #8CB1B0;
+	  border-right: 250px solid transparent;
+	  border-bottom: 250px solid #8CB1B0;
+    z-index: 3;
+    bottom: 20%;
+    left: 0%;
+    position: absolute;
+  }
+  .leftLowerVar3{
+    border-left: 0 solid #C2CFE1;
+	  border-right: 350px solid transparent;
+	  border-bottom: 350px solid #C2CFE1;
+    z-index: 2;
+    bottom: 20%;
+    left: 0%;
+    position: absolute;
+  }
