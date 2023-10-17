@@ -14,6 +14,7 @@ import { fruits } from  "@/components/resoUpload/lists"
 const frameworks = fruits;
 
 export function PopUp(){
+    console.log(typeof(fruits));
     return(
         <div className="m-[15%]">
         <Card className="w-[100%]">
@@ -26,7 +27,7 @@ export function PopUp(){
                 <div className="grid grid-cols-2">
                     <div className="py-2 ">Main Submitter:</div>
                     <div className="left py-2 z-10">
-                        <SelectBox />
+                        <SelectBox frameworks={fruits}/>
                     </div>
                 </div>
 

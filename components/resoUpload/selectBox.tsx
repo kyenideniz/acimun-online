@@ -20,9 +20,12 @@ import {
 
 import { fruits, GA } from  "@/components/resoUpload/lists"
 
-const frameworks = fruits ||  GA
-
-export function SelectBox() {
+interface SecondaryBannerProps{
+    frameworks?: object[];
+}
+export const SelectBox: React.FC<SecondaryBannerProps> = ({
+    frameworks, 
+}) => {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
 
