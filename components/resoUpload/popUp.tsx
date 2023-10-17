@@ -26,7 +26,7 @@ export function PopUp(){
                 <div className="grid grid-cols-2">
                     <div className="py-2 ">Main Submitter:</div>
                     <div className="left py-2 z-10">
-                        <SelectBox list= {fruits}/>
+                        <SelectBox />
                     </div>
                 </div>
 

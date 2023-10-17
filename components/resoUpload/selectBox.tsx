@@ -18,19 +18,13 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
-import { fruits } from  "@/components/resoUpload/lists"
+import { fruits, GA } from  "@/components/resoUpload/lists"
 
-interface SelectBoxProps{
-    list: any;
-}
-export const SelectBox: React.FC<SelectBoxProps> = ({
-    list,
-}) => {
-    
+const frameworks = fruits ||  GA
+
+export function SelectBox() {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
-
-  const frameworks = {list};
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
