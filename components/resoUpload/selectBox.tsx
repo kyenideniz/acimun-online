@@ -20,11 +20,17 @@ import {
 
 import { fruits } from  "@/components/resoUpload/lists"
 
-const frameworks = fruits
-
-export function SelectBox() {
+interface SelectBoxProps{
+    list: any;
+}
+export const SelectBox: React.FC<SelectBoxProps> = ({
+    list,
+}) => {
+    
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
+
+  const frameworks = {list};
 
   return (
     <Popover open={open} onOpenChange={setOpen}>

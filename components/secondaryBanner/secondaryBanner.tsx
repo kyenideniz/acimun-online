@@ -4,10 +4,10 @@ import logo from '@/public/logo.png'
 import { CornerLines } from "@/components/secondaryBanner/secondaryCornerLines"
 import Container from '../ui/container';
 
-interface ProductListProps{
+interface SecondaryBannerProps{
     title: string;
 }
-const SecondaryBanner: React.FC<ProductListProps> = ({
+const SecondaryBanner: React.FC<SecondaryBannerProps> = ({
     title, 
 }) => {
 

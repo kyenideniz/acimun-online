@@ -9,6 +9,10 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { SelectBox } from "@/components/resoUpload/selectBox";
 
+import { fruits } from  "@/components/resoUpload/lists"
+
+const frameworks = fruits;
+
 export function PopUp(){
     return(
         <div className="m-[15%]">
@@ -22,32 +26,32 @@ export function PopUp(){
                 <div className="grid grid-cols-2">
                     <div className="py-2 ">Main Submitter:</div>
                     <div className="left py-2 z-10">
-                        <SelectBox />
+                        <SelectBox list= {fruits}/>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-2">
                     <div className="py-2">Committee: </div>
                     <div className="left py-2 z-10">
-                        <SelectBox />
+                    
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
                     <div className="py-2">Resolution No:</div>
                     <div className="left py-2 z-10">
-                        <SelectBox />
+                        
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
                     <div className="py-2">Question of:</div>
                     <div className="left py-2 z-10">
-                        <SelectBox />
+                        
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
                     <div className="py-2">Co-Submitters:</div>
                     <div className="left py-2 z-10">
-                        <SelectBox />
+                        
                     </div>
                 </div>
                 <br></br><br></br>
