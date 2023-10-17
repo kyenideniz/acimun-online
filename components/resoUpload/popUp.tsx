@@ -9,9 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { SelectBox } from "@/components/resoUpload/selectBox";
 
-import { fruits } from  "@/components/resoUpload/lists"
-
-const frameworks = fruits;
+import { fruits, GA } from  "@/components/resoUpload/lists"
 
 export function PopUp(){
     console.log(typeof(fruits));
@@ -34,25 +32,25 @@ export function PopUp(){
                 <div className="grid grid-cols-2">
                     <div className="py-2">Committee: </div>
                     <div className="left py-2 z-10">
-                    
+                        <SelectBox frameworks={GA}/>
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
                     <div className="py-2">Resolution No:</div>
                     <div className="left py-2 z-10">
-                        
+                        <SelectBox frameworks={GA}/>
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
                     <div className="py-2">Question of:</div>
                     <div className="left py-2 z-10">
-                        
+                        <SelectBox frameworks={fruits}/> 
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
                     <div className="py-2">Co-Submitters:</div>
                     <div className="left py-2 z-10">
-                        
+                        <SelectBox frameworks={fruits}/>
                     </div>
                 </div>
                 <br></br><br></br>
