@@ -1,7 +1,7 @@
 export const fruits = [
   {
-    value: "next.js",
-    label: "Next.js",
+    value: "123s",
+    label: "123s",
   },
   {
     value: "sveltekit",
