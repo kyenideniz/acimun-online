@@ -21,7 +21,7 @@ import {
 import { fruits, GA } from  "@/components/resoUpload/lists"
 
 interface SecondaryBannerProps{
-    frameworks?: object[];
+    frameworks?: object;
 }
 export const SelectBox: React.FC<SecondaryBannerProps> = ({
     frameworks, 
@@ -39,7 +39,7 @@ export const SelectBox: React.FC<SecondaryBannerProps> = ({
           className="w-[200px] justify-between"
         >
           {value
-            ? frameworks.find((framework) => framework.value === value)?.label
+            ? frameworks!.find((framework) => framework.value === value)?.label
             : "Select..."}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
@@ -49,7 +49,7 @@ export const SelectBox: React.FC<SecondaryBannerProps> = ({
           <CommandInput placeholder="Search..." />
           <CommandEmpty>No framework found.</CommandEmpty>
           <CommandGroup>
-            {frameworks.map((framework) => (
+            {frameworks!.map((framework) => (
               <CommandItem
                 key={framework.value}
                 onSelect={(currentValue) => {
