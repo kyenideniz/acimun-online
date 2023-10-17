@@ -1,45 +1,45 @@
-export const fruits = [
+export const delegations = [
   {
-    value: "123s",
-    label: "123s",
+    value: "turkey",
+    label: "Turkey",
   },
   {
-    value: "sveltekit",
-    label: "SvelteKit",
+    value: "germany",
+    label: "Germany",
   },
   {
-    value: "nuxt.js",
-    label: "Nuxt.js",
+    value: "japan",
+    label: "Japan",
   },
   {
-    value: "remix",
-    label: "Remix",
+    value: "israel",
+    label: "Israel",
   },
   {
-    value: "astro",
-    label: "Astro",
+    value: "venice",
+    label: "Venice",
   },
 ]
 
 export const GA = [
   {
-    value: "GA1",
-    label: "ga1",
+    value: "ga1",
+    label: "GA1",
   },
   {
-    value: "sveltekit",
-    label: "SvelteKit",
+    value: "ga2",
+    label: "GA2",
   },
   {
-    value: "nuxt.js",
-    label: "Nuxt.js",
+    value: "ga3",
+    label: "GA3",
   },
   {
-    value: "remix",
-    label: "Remix",
+    value: "ga4",
+    label: "GA4",
   },
   {
-    value: "astro",
-    label: "Astro",
+    value: "ga5",
+    label: "GA5",
   },
 ]

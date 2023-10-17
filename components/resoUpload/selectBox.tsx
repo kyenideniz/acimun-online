@@ -18,8 +18,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 
-import { fruits, GA } from  "@/components/resoUpload/lists"
-
 interface SecondaryBannerProps{
     frameworks?: Array<any>;
 }
