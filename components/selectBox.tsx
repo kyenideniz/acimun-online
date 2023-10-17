@@ -19,10 +19,12 @@ import {
 } from "@/components/ui/popover"
 
 interface SecondaryBannerProps{
-    frameworks?: Array<any>;
+    frameworks: Array<any>;
+    placeholder: string,
 }
 export const SelectBox: React.FC<SecondaryBannerProps> = ({
-    frameworks, 
+    frameworks,
+    placeholder,
 }) => {
   const [open, setOpen] = React.useState(false)
   const [value, setValue] = React.useState("")
@@ -37,8 +39,8 @@ export const SelectBox: React.FC<SecondaryBannerProps> = ({
           className="w-[200px] justify-between"
         >
           {value
-            ? frameworks!.find((framework) => framework.value === value)?.label
-            : "Select..."}
+            ? frameworks.find((framework) => framework.value === value)?.label
+            : placeholder}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>

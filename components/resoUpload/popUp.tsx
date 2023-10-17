@@ -1,13 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { SelectBox } from "@/components/resoUpload/selectBox";
+import { SelectBox } from "@/components/selectBox";
 
 import { delegations, GA } from  "@/components/resoUpload/lists"
 
 export function PopUp(){
     return(
-        <div className="m-[15%]">
+        <div className="">
         <Card className="w-[100%]">
             <div className="mx-20 ">
                 <div className="text-4xl mt-20 py-2 text-center">Upload Resolutions</div>
@@ -18,14 +18,14 @@ export function PopUp(){
                 <div className="grid grid-cols-2">
                     <div className="py-2 ">Main Submitter:</div>
                     <div className="left py-2 z-10">
-                        <SelectBox frameworks={delegations}/>
+                        <SelectBox frameworks={delegations} placeholder="Select..."/>
                     </div>
                 </div>
 
                 <div className="grid grid-cols-2">
                     <div className="py-2">Committee: </div>
                     <div className="left py-2 z-10">
-                        <SelectBox frameworks={GA}/>
+                        <SelectBox frameworks={GA} placeholder="Select..."/>
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
@@ -37,13 +37,13 @@ export function PopUp(){
                 <div className="grid grid-cols-2">
                     <div className="py-2">Question of:</div>
                     <div className="left py-2 z-10">
-                        <SelectBox frameworks={delegations}/> 
+                        <SelectBox frameworks={delegations} placeholder="Select..."/> 
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
                     <div className="py-2">Co-Submitters:</div>
                     <div className="left py-2 z-10">
-                        <SelectBox frameworks={delegations}/>
+                        <SelectBox frameworks={delegations} placeholder="Select..."/>
                     </div>
                 </div>
                 <br></br><br></br>
