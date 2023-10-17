@@ -35,19 +35,19 @@ export function PopUp(){
                 <div className="grid grid-cols-2">
                     <div className="py-2">Resolution No:</div>
                     <div className="left py-2 z-10">
-                        <Input type="text" placeholder="Resolution No" />
+                        <SelectBox />
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
                     <div className="py-2">Question of:</div>
                     <div className="left py-2 z-10">
-                        <Input type="text" placeholder="Question of" />
+                        <SelectBox />
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
                     <div className="py-2">Co-Submitters:</div>
                     <div className="left py-2 z-10">
-                        <Input type="text" placeholder="Co-Submitters" />
+                        <SelectBox />
                     </div>
                 </div>
                 <br></br><br></br>

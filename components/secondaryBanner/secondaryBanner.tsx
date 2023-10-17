@@ -4,8 +4,12 @@ import logo from '@/public/logo.png'
 import { CornerLines } from "@/components/secondaryBanner/secondaryCornerLines"
 import Container from '../ui/container';
 
-
-export function SecondaryBanner() {
+interface ProductListProps{
+    title: string;
+}
+const SecondaryBanner: React.FC<ProductListProps> = ({
+    title, 
+}) => {
 
   return ( 
     <>
@@ -22,7 +26,7 @@ export function SecondaryBanner() {
             </div>
 
             <div className='text-center text-7xl/[43px] m-4 font-thin'>
-                Resolutions
+                {title}
             </div>
             <div className=''>
                 <CornerLines />

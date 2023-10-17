@@ -26,8 +26,8 @@ export function ResoUpload(){
                     <PopUp />
                 </PopoverContent>
             </Popover>
-            <PopUp />
         </div>
+        <PopUp />
       </div>
     </div>
   )

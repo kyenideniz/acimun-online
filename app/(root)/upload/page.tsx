@@ -7,9 +7,8 @@ export default function Home() {
   return (
     
     <div className="bg-white">
-      <SecondaryBanner />
+      <SecondaryBanner title="Chair Dashboard"/>
       <ResoUpload />
-      <br></br><br></br>
     </div>
 
   )

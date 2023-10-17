@@ -6,7 +6,7 @@ export default function Home() {
   return (
     
     <div className="bg-white">
-      <SecondaryBanner />
+      <SecondaryBanner title="Resolutions"/>
       <ResoInfo />
     </div>
 
