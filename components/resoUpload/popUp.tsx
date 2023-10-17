@@ -1,9 +1,3 @@
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-  } from "@/components/ui/popover"
-
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -37,7 +31,7 @@ export function PopUp(){
                 <div className="grid grid-cols-2">
                     <div className="py-2">Resolution No:</div>
                     <div className="left py-2 z-10">
-                        <SelectBox frameworks={delegations}/>
+                        <Input className="w-[200px]" placeholder="Resolution #No"/>
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
