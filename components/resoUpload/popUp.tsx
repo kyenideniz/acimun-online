@@ -8,7 +8,7 @@ import { delegations, GA } from  "@/components/resoUpload/lists"
 export function PopUp(){
     return(
         <div className="">
-        <Card className="w-[100%]">
+        <Card className="w-[800px]">
             <div className="mx-20 ">
                 <div className="text-4xl mt-20 py-2 text-center">Upload Resolutions</div>
                 <hr className="rounded w-[100%]"></hr>
