@@ -6,9 +6,9 @@ export function CornerLines(){
             <div className={styles.leftUpperVar2}></div>
             <div className={styles.leftUpperVar3}></div>
     
-            <div className="triangle lower rightLowerVar1"></div>
-            <div className="triangle lower rightLowerVar2"></div>
-            <div className="triangle lower rightLowerVar3"></div>
+            <div className={styles.rightLowerVar1}></div>
+            <div className={styles.rightLowerVar2}></div>
+            <div className={styles.rightLowerVar3}></div>
         </>
     );
 };

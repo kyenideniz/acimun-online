@@ -87,7 +87,7 @@
   }
   .grid-container {
     display: grid;
-    grid-template-columns: 150px 100px 100px auto;
+    grid-template-columns: 100px 50px 50px auto;
     margin-top: 8px;
   }  
   hr.rounded {

@@ -11,7 +11,7 @@ export function ResoUpload(){
         <div style={{background:"#C2CFE1"}}></div>
         <div className="p-4">
 
-        <div className="mx-[15%]">
+        <div className="m-[15%]">
             <Card className="w-[100%]">
                 <div className="mx-20 ">
                     <div className="text-4xl mt-20 py-2 text-center">Upload Resolutions</div>
