@@ -21,7 +21,7 @@ import {
 import { fruits, GA } from  "@/components/resoUpload/lists"
 
 interface SecondaryBannerProps{
-    frameworks?: object;
+    frameworks?: Array<any>;
 }
 export const SelectBox: React.FC<SecondaryBannerProps> = ({
     frameworks, 
