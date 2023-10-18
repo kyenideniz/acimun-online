@@ -4,7 +4,6 @@ import { SelectBox } from "@/components/selectBox";
 import { delegations } from "@/components/resoUpload/lists";
 import { CreateNewMessage } from "@/components/messageComponents/createNewMessage";
 import { ProfileInfo } from "./messageComponents/profile";
-import { PopUp } from "@/components/resoUpload/popUp";
 import ResoContainer from "./resoInfoBox";
 import { InfoToast } from "./infoToast";
 
@@ -17,7 +16,7 @@ export function Dashboard(){
         <div style={{background:"#8CB1B0"}}></div>
         <div style={{background:"#C2CFE1"}}></div>
         <div className="p-4">
-        <InfoToast />
+          <InfoToast header="Scheduled: Catch up" text="Friday, February 10, 2023 at 5:57 PM" />
         
         <div className="font-body mx-20 ">
           <div className="w-[26%]">
@@ -54,18 +53,14 @@ export function Dashboard(){
 
         <div className="mx-20 w-[100%]">
           <div className="container2">
-            <div className="container3">
+            
             <div className="text-4xl mt-20 py-2 text-left">&nbsp;&nbsp;Latest Uploaded Resolutions&nbsp;&nbsp;&nbsp;&nbsp;    
-              <hr className="rounded w-[100%]"></hr>         
+              <hr className="rounded w-[90%]"></hr>         
+            </div>   
+              <Upload />
             </div>
-            <div className="container3">
-            <div></div>
-              <Upload />  
-            </div>      
-            </div>
-          </div>
-              
-
+          
+        
           <div className="grid grid-cols-2">
             <ResoContainer />
             <ResoContainer />

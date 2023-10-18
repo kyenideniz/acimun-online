@@ -1,24 +1,24 @@
 import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-  } from "@/components/ui/popover"
+    Dialog,
+    DialogContent,
+    DialogTrigger,
+} from "@/components/ui/dialog"
 
-
-import { Button } from "@/components/ui/button";
 import { PopUp } from "@/components/resoUpload/popUp";
 import { PlusIcon } from "lucide-react";
 import IconButton from "@/components/ui/iconButton";
 
 export function Upload (){
     return(
-        <Popover>
-            <PopoverTrigger>
-                <IconButton icon={<PlusIcon className="items-baseline justify-baseline flex"/>} />
-            </PopoverTrigger>
-            <PopoverContent>
-                <PopUp />
-            </PopoverContent>
-        </Popover>
+        <div className="items-center justify-center flex">
+            <Dialog>
+                <DialogTrigger>
+                    <IconButton icon={<PlusIcon className="items-baseline justify-baseline flex"/>} />
+                </DialogTrigger>
+                <DialogContent>
+                    <PopUp />
+                </DialogContent>
+            </Dialog>
+        </div>
     )
 }

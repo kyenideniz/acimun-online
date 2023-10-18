@@ -1,36 +1,34 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
-import { ToastAction } from "@radix-ui/react-toast"
 
-export function InfoToast() {
+interface SecondaryBannerProps{
+    header: string;
+    text: string;
+}
+export const InfoToast: React.FC<SecondaryBannerProps> = ({
+    header,
+    text
+}) => {
+
   const { toast } = useToast()
 
-  function handleClick() {
-    toast({
-        description: "Your message has been sent.",
-        action: (
-            <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
-        ),
-    })
-  }
   return (
-    <>
     <Button
-        variant="outline"
-        onClick={() => handleClick()}
-        >
-          Show Toast
-    </Button>
-    <button
-        className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+      variant="outline"
       onClick={() => {
-          toast({
-              description: "Your message has been sent.",
-          })
-      } }>
-        Show Toast
-    </button></>
+        toast({
+          title: header,
+          description: text,
+          action: (
+            <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+          ),
+        })
+      }}
+    >
+      Add to calendar
+    </Button>
   )
 }

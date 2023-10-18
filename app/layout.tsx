@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import * as React from 'react'
+import { Toaster } from "@/components/ui/toaster"
+
 
 import './globals.css'
 
@@ -18,7 +20,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-         {children}
+      <head />
+      <body>
+        <main>{children}</main>
+        <Toaster />
+      </body>
     </html>
   )
 }
