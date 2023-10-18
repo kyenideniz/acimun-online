@@ -6,15 +6,18 @@ import { CreateNewMessage } from "@/components/messageComponents/createNewMessag
 import { ProfileInfo } from "./messageComponents/profile";
 import { PopUp } from "@/components/resoUpload/popUp";
 import ResoContainer from "./resoInfoBox";
+import { InfoToast } from "./infoToast";
 
 export function Dashboard(){
     return(
+      
 
     <div className="grid-container">
         <div style={{background:"#5E859E"}}></div>
         <div style={{background:"#8CB1B0"}}></div>
         <div style={{background:"#C2CFE1"}}></div>
         <div className="p-4">
+        <InfoToast />
         
         <div className="font-body mx-20 ">
           <div className="w-[26%]">
