@@ -2,19 +2,24 @@
 
 import { Button } from "@/components/ui/button"
 import { useToast } from "@/components/ui/use-toast"
+import { ToastAction } from "@radix-ui/react-toast"
 
 export function InfoToast() {
   const { toast } = useToast()
 
+  function handleClick() {
+    toast({
+        description: "Your message has been sent.",
+        action: (
+            <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+        ),
+    })
+  }
   return (
     <>
     <Button
         variant="outline"
-            onClick={() => {
-                toast({
-                    description: "Your message has been sent.",
-                })
-            } }
+        onClick={() => handleClick()}
         >
           Show Toast
     </Button>
