@@ -8,13 +8,13 @@ import {
 import { Button } from "@/components/ui/button";
 import { PopUp } from "@/components/resoUpload/popUp";
 import { PlusIcon } from "lucide-react";
-import IconButton from "../ui/iconButton";
+import IconButton from "@/components/ui/iconButton";
 
 export function Upload (){
     return(
         <Popover>
             <PopoverTrigger>
-                <IconButton icon={<PlusIcon />}/>
+                <IconButton icon={<PlusIcon className="items-baseline justify-baseline flex"/>} />
             </PopoverTrigger>
             <PopoverContent>
                 <PopUp />

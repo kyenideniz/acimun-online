@@ -4,7 +4,8 @@ import { SelectBox } from "@/components/selectBox";
 import { delegations } from "@/components/resoUpload/lists";
 import { CreateNewMessage } from "@/components/messageComponents/createNewMessage";
 import { ProfileInfo } from "./messageComponents/profile";
-import { PopUp } from "./resoUpload/popUp";
+import { PopUp } from "@/components/resoUpload/popUp";
+import ResoContainer from "./resoInfoBox";
 
 export function Dashboard(){
     return(
@@ -48,14 +49,26 @@ export function Dashboard(){
             <ProfileInfo />
         </div>
 
-        <div className="mx-20 w-[52%]">
-          <div className="grid grid-cols-2">
-            <div className="text-4xl mt-20 py-2 text-center">Upload Resolutions&nbsp;&nbsp;&nbsp;&nbsp;</div>                
-            <div className="bottom-0 left-0">
-              <Upload />
+        <div className="mx-20 w-[100%]">
+          <div className="container2">
+            <div className="container3">
+            <div className="text-4xl mt-20 py-2 text-left">&nbsp;&nbsp;Latest Uploaded Resolutions&nbsp;&nbsp;&nbsp;&nbsp;    
+              <hr className="rounded w-[100%]"></hr>         
+            </div>
+            <div className="container3">
+            <div></div>
+            <Upload />  
+            </div>      
             </div>
           </div>
-          <hr className="rounded w-[52%]"></hr>
+              
+
+          <div className="grid grid-cols-2">
+            <ResoContainer />
+            <ResoContainer />
+            <ResoContainer />
+            <ResoContainer />
+          </div>
         </div>
 
         <br></br><br></br><br></br><br></br>
