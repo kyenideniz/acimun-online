@@ -34,7 +34,7 @@ export function Dashboard(){
 
           <div className="grid-cols-2 grid">
             <div className="text-3xl my-4 font-thin">&nbsp;&nbsp;To:&nbsp;&nbsp;&nbsp;&nbsp;
-              <SelectBox frameworks={delegations} placeholder="Search..."/>
+              <SelectBox frameworks={delegations}/>
             </div>
           </div> 
           <div className="m-4">
