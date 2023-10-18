@@ -18,14 +18,14 @@ export function PopUp(){
                 <div className="grid grid-cols-2">
                     <div className="py-2 ">Main Submitter:</div>
                     <div className="left py-2 z-10">
-                        <SelectBox frameworks={delegations} placeholder="Select..."/>
+                        <SelectBox frameworks={delegations} />
                     </div>
                 </div>
 
                 <div className="grid grid-cols-2">
                     <div className="py-2">Committee: </div>
                     <div className="left py-2 z-10">
-                        <SelectBox frameworks={GA} placeholder="Select..."/>
+                        <SelectBox frameworks={GA} />
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
@@ -37,18 +37,18 @@ export function PopUp(){
                 <div className="grid grid-cols-2">
                     <div className="py-2">Question of:</div>
                     <div className="left py-2 z-10">
-                        <SelectBox frameworks={delegations} placeholder="Select..."/> 
+                        <SelectBox frameworks={delegations} /> 
                     </div>
                 </div>
                 <div className="grid grid-cols-2">
                     <div className="py-2">Co-Submitters:</div>
                     <div className="left py-2 z-10">
-                        <SelectBox frameworks={delegations} placeholder="Select..."/>
+                        <SelectBox frameworks={delegations} />
                     </div>
                 </div>
                 <br></br><br></br>
                 <div className="flex items-center justify-center">
-                    <Button className="font-body font-thin text-lg bg-[#5E859E]">Upload</Button>
+                    <Button className="font-body font-thin text-lg bg-[#5E859E]" type="submit">Upload</Button>
                 </div>
                 <br></br>
             </div>
