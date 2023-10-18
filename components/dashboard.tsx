@@ -57,7 +57,7 @@ export function Dashboard(){
             </div>
             <div className="container3">
             <div></div>
-            <Upload />  
+              <Upload />  
             </div>      
             </div>
           </div>
