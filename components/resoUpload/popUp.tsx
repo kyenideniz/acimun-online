@@ -1,62 +1,62 @@
 "use client"
 
-import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { SelectBox } from "@/components/selectBox";
-
-import { delegations, GA } from  "@/components/resoUpload/lists"
-
-import * as z from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { Form, useForm } from "react-hook-form";
 import { toast } from "@/components/ui/use-toast"
 
-type FormData = {
-    mainSub: string;
-    committee: string;
-    resolutionNo: string;
-    questionOf: string;
-    coSubs: string;
-  };
+
+import { connect, getServerSideProps } from "@/api/server"
+import { useState } from "react"
+import { ToastAction } from "@/components/ui/toast"
+import { SelectBox, Option } from "@/components/selectBox"
+import { GA, delegations } from "@/components/resoUpload/lists"
+
+export var mainSubVal: string;
+export var committeeVal: string;
+export var resolutionNoVal:string;
+export var questionOfVal: string;
+export var coSubsVal: string;
+export var linkVal: string;
 
 export function PopUp(){
-    const schema: z.ZodType<FormData> = z
-    .object({
-      mainSub: z.string({required_error: "Please select a 'Main Submitter' to display.",}).min(2).max(30),
-      committee: z.string({required_error: "Please select a 'Committee'to display.",}).min(2).max(30),
-      resolutionNo: z.string({required_error: "Please type a 'Resolution No' to display.",}).email(),
-      questionOf: z.string({required_error: "Please select an 'Issue' to display.",}).min(18).max(70),
-      coSubs: z.string({required_error: "Please select 'Co-Submitters' to display.",}).min(5).max(20),
-    })
+    const [link, setLink] = useState("");
+    const [resolutionNo, setResolutionNO] = useState("");
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm<FormData>({
-        resolver: zodResolver(schema),
-      });
+    const [coSubs, setCoSubs] = useState<Option>()
+    const [mainSub, setMainSub] = useState<Option>()
+    const [committee, setCommittee] = useState<Option>()
+    const [questionOf, setQuestionOf] = useState<Option>()
 
-    const form = useForm<z.infer<typeof schema>>({
-        resolver: zodResolver(schema),
-      })
-    
-      function onSubmit(data: z.infer<typeof schema>) {
+    linkVal = link
+    resolutionNoVal = resolutionNo
+
+    mainSubVal = JSON.stringify(mainSub?.label)
+    committeeVal = JSON.stringify(committee?.label)
+    resolutionNoVal = JSON.stringify(resolutionNo)
+    questionOfVal = JSON.stringify(questionOf?.label)
+    coSubsVal = JSON.stringify(coSubs?.label)
+
+    function onClick() {
+        getServerSideProps();
         toast({
-          title: "You submitted the following values:",
-          description: (
-            <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-              <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-            </pre>
-          ),
+            title: "Submitted",
+            description: 
+                <code className="text-black font-body">
+                    <div>Main Submitter: {mainSubVal ? mainSubVal:"Select"}</div> 
+                    <div>Comittee: {committeeVal ? committeeVal:"Select"} </div>
+                    <div>Resolution No: {resolutionNoVal ? resolutionNoVal:"Select"} </div>
+                    <div>Question of: {questionOfVal ? questionOfVal:"Select"} </div>
+                    <div>Co-Submitters: {coSubsVal ? coSubsVal:"Select"} </div>
+                    <div>Link: {linkVal ? linkVal:"Select"} </div>
+                </code>,
+            action: (
+                <ToastAction altText="Close">Close</ToastAction>
+            ),
         })
-      }
+    }
 
     return(
-        <div className="">
-            <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)}>
+        <div className="space-y-8">
                 <div className="mx-20 ">
                     <div className="text-4xl mt-20 py-2 text-center">Upload Resolutions</div>
                     <hr className="rounded w-[100%]"></hr>
@@ -66,43 +66,46 @@ export function PopUp(){
                     <div className="grid grid-cols-2">
                         <div className="py-2 ">Main Submitter:</div>
                         <div className="left py-2 z-10">
-                            <SelectBox frameworks={delegations} {...register("mainSub")}/>
+                            <SelectBox options={delegations} emptyMessage=""  onValueChange={setMainSub} val={mainSub}/>            
                         </div>
                     </div>
 
                     <div className="grid grid-cols-2">
                         <div className="py-2">Committee: </div>
                         <div className="left py-2 z-10">
-                            <SelectBox frameworks={GA} {...register("committee")} />
+                            <SelectBox options={GA} emptyMessage=""  onValueChange={setCommittee} val={committee}/>
                         </div>
                     </div>
                     <div className="grid grid-cols-2">
                         <div className="py-2">Resolution No:</div>
                         <div className="left py-2 z-10">
-                            <Input className="w-[200px]" placeholder="Resolution #No" {...register("resolutionNo")} />
+                            <Input className="w-[200px]" placeholder="Resolution No" value={resolutionNo} onChange={e => setResolutionNO(e.target.value)} />
                         </div>
                     </div>
                     <div className="grid grid-cols-2">
                         <div className="py-2">Question of:</div>
                         <div className="left py-2 z-10">
-                            <SelectBox frameworks={delegations} {...register("questionOf")} /> 
+                            <SelectBox options={delegations} emptyMessage=""  onValueChange={setQuestionOf} val={questionOf}/>
                         </div>
                     </div>
                     <div className="grid grid-cols-2">
                         <div className="py-2">Co-Submitters:</div>
                         <div className="left py-2 z-10">
-                            <SelectBox frameworks={delegations} {...register("coSubs")} />
+                            <SelectBox options={delegations} emptyMessage=""  onValueChange={setCoSubs} val={coSubs}/>
+                        </div>
+                    </div>
+                    <div className="grid grid-cols-2">
+                        <div className="py-2">Link:</div>
+                        <div className="left py-2 z-10">
+                            <Input className="w-[200px]" placeholder="Link" value={link} onChange={e => setLink(e.target.value)} />
                         </div>
                     </div>
                     <br></br><br></br>
                     <div className="flex items-center justify-center">
-                        <Button className="font-body font-thin text-lg bg-[#5E859E]" type="submit">Upload</Button>
+                        <Button className="font-body font-thin text-lg bg-[#5E859E]" type="submit" onClick={onClick}>Upload</Button>
                     </div>
                 <br></br>
                 </div>
-            </form>
-        </Form>
     </div>
     )
 }
-

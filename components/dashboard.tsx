@@ -4,19 +4,18 @@ import { SelectBox } from "@/components/selectBox";
 import { delegations } from "@/components/resoUpload/lists";
 import { CreateNewMessage } from "@/components/messageComponents/createNewMessage";
 import { ProfileInfo } from "./messageComponents/profile";
-import ResoContainer from "./resoInfoBox";
-import { InfoToast } from "./infoToast";
+import ResoContainer from "@/components/resoInfoBox";
+import { InfoToast } from "@/components/infoToast";
 
 export function Dashboard(){
-    return(
-      
+  
+  return(
 
     <div className="grid-container">
         <div style={{background:"#5E859E"}}></div>
         <div style={{background:"#8CB1B0"}}></div>
         <div style={{background:"#C2CFE1"}}></div>
         <div className="p-4">
-          <InfoToast header="Scheduled: Catch up" text="Friday, February 10, 2023 at 5:57 PM" />
         
         <div className="font-body mx-20 ">
           <div className="w-[26%]">
@@ -36,7 +35,7 @@ export function Dashboard(){
 
           <div className="grid-cols-2 grid">
             <div className="text-3xl my-4 font-thin">&nbsp;&nbsp;To:&nbsp;&nbsp;&nbsp;&nbsp;
-              <SelectBox frameworks={delegations}/>
+              <SelectBox options={delegations} emptyMessage="Select"/>
             </div>
           </div> 
           <div className="m-4">
@@ -62,10 +61,10 @@ export function Dashboard(){
           
         
           <div className="grid grid-cols-2">
-            <ResoContainer />
-            <ResoContainer />
-            <ResoContainer />
-            <ResoContainer />
+            <ResoContainer submitter="Turkey"/>
+            <ResoContainer submitter="Turkey"/>
+            <ResoContainer submitter="Turkey"/>
+            <ResoContainer submitter="Turkey"/>
           </div>
         </div>
 
@@ -77,4 +76,4 @@ export function Dashboard(){
 };
 
 export default Dashboard;
-        
+

@@ -4,13 +4,9 @@ import { Button } from "@/components/ui/button"
 import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
 
-interface SecondaryBannerProps{
-    header: string;
-    text: string;
-}
-export const InfoToast: React.FC<SecondaryBannerProps> = ({
-    header,
-    text
+import { mainSubVal, committeeVal, resolutionNoVal, questionOfVal, coSubsVal, linkVal } from "@/components/resoUpload/form"
+
+export const InfoToast = ({
 }) => {
 
   const { toast } = useToast()
@@ -20,12 +16,20 @@ export const InfoToast: React.FC<SecondaryBannerProps> = ({
       variant="outline"
       onClick={() => {
         toast({
-          title: header,
-          description: text,
+          title: "Submitted",
+          description: 
+              <code className="text-black font-body">
+                  <div>Main Submitter: {mainSubVal ? mainSubVal:"Select"}</div> 
+                  <div>Comittee: {committeeVal ? committeeVal:"Select"} </div>
+                  <div>Resolution No: {resolutionNoVal ? resolutionNoVal:"Select"} </div>
+                  <div>Question of: {questionOfVal ? questionOfVal:"Select"} </div>
+                  <div>Co-Submitters: {coSubsVal ? coSubsVal:"Select"} </div>
+                  <div>Link: {linkVal ? linkVal:"Select"} </div>
+              </code>,
           action: (
-            <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+              <ToastAction altText="Close">Close</ToastAction>
           ),
-        })
+      })
       }}
     >
       Add to calendar
