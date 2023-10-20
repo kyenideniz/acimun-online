@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { toast } from "@/components/ui/use-toast"
 
 
-import { connect, getServerSideProps } from "@/api/server"
+import { connect } from "@/api/server"
 import { useState } from "react"
 import { ToastAction } from "@/components/ui/toast"
 import { SelectBox, Option } from "@/components/selectBox"
@@ -37,7 +37,7 @@ export function PopUp(){
     coSubsVal = JSON.stringify(coSubs?.label)
 
     function onClick() {
-        getServerSideProps();
+        connect();
         toast({
             title: "Submitted",
             description: 
