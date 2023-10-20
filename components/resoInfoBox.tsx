@@ -1,5 +1,5 @@
 interface ResoContainerProps{
-    submitter: string;
+    submitter?: string;
 }
 const ResoContainer: React.FC<ResoContainerProps> = ({
     submitter, 
