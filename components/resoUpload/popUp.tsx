@@ -47,7 +47,7 @@ export function PopUp(){
                 ),
               })
         } catch (error) {
-            console.log(error)
+            console.log(error, {status: 400})
         }
     }; 
     
