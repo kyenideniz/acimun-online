@@ -14,7 +14,7 @@ export async function POST(req: Request) {
         mainSub: resolution.mainSub.label,
         committee: resolution.committee.label,
         resolutionNo: resolution.resolutionNo,
-        questionOf: resolution.questionOf.label,
+        questionOf: resolution.questionOf.value,
         coSubs: resolution.coSubs.label,
         link: resolution.link,
       },

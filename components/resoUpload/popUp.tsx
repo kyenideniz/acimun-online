@@ -6,7 +6,8 @@ import { toast } from "@/components/ui/use-toast"
 
 import { useState } from "react"
 import { SelectBox, Option } from "@/components/selectBox"
-import { GA, delegations } from "@/components/resoUpload/lists"
+import { MultipleSelectBox } from "@/components/multipleSelectBox"
+import { committees, delegations, issues } from "@/components/resoUpload/lists"
 
 export var isSubmittedVal: boolean;
 
@@ -27,7 +28,7 @@ export function PopUp(){
                     mainSub: mainSub?.label ? mainSub: "N/A", 
                     committee: committee?.label ? committee: "N/A",
                     resolutionNo: resolutionNo ? resolutionNo: "N/A",
-                    questionOf: questionOf?.label ? questionOf: "N/A",
+                    questionOf: questionOf?.value ? questionOf: "N/A",
                     coSubs: coSubs?.label ? coSubs: "N/A",
                     link: link ? link:"N/A",
                 }),
@@ -69,7 +70,7 @@ export function PopUp(){
                     <div className="grid grid-cols-2">
                         <div className="py-2">Committee: </div>
                         <div className="left py-2 z-10">
-                            <SelectBox options={GA} emptyMessage=""  onValueChange={setCommittee} val={committee}/>
+                            <SelectBox options={committees} emptyMessage=""  onValueChange={setCommittee} val={committee}/>
                         </div>
                     </div>
                     <div className="grid grid-cols-2">
@@ -81,13 +82,13 @@ export function PopUp(){
                     <div className="grid grid-cols-2">
                         <div className="py-2">Question of:</div>
                         <div className="left py-2 z-10">
-                            <SelectBox options={delegations} emptyMessage=""  onValueChange={setQuestionOf} val={questionOf}/>
+                            <SelectBox options={issues} emptyMessage=""  onValueChange={setQuestionOf} val={questionOf} />
                         </div>
                     </div>
                     <div className="grid grid-cols-2">
                         <div className="py-2">Co-Submitters:</div>
                         <div className="left py-2 z-10">
-                            <SelectBox options={delegations} emptyMessage=""  onValueChange={setCoSubs} val={coSubs}/>
+                            <MultipleSelectBox options={delegations} emptyMessage=""  onValueChange={setCoSubs} val={coSubs}/>
                         </div>
                     </div>
                     <div className="grid grid-cols-2">

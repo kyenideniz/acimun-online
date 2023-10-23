@@ -17,6 +17,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Skeleton } from "@/components/ui/skeleton"
 
 import { useState, useRef, useCallback, type KeyboardEvent } from "react"
+import { DropdownMenuItem } from "./ui/dropdown-menu"
 
 export type Option = Record<"value" | "label", string> & Record<string, string>
 
@@ -37,7 +38,7 @@ type SelectBoxProps = {
     placeholder?: string;
 
 }
-export const SelectBox: React.FC<SelectBoxProps> = ({
+export const MultipleSelectBox: React.FC<SelectBoxProps> = ({
     frameworks,
     options,
     emptyMessage,
@@ -52,6 +53,8 @@ export const SelectBox: React.FC<SelectBoxProps> = ({
   const [isOpen, setOpen] = useState(false)
   const [selected, setSelected] = useState<Option>(val as Option)
   const [inputValue, setInputValue] = useState<string>(val?.label || "")
+  
+  let selectedList: any = [];
 
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<HTMLDivElement>) => {
@@ -71,6 +74,8 @@ export const SelectBox: React.FC<SelectBoxProps> = ({
         if (optionToSelect) {
           setSelected(optionToSelect)
           onValueChange?.(optionToSelect)
+          selectedList.push(selected?.label)
+          console.log(selectedList)
         }
       }
 
@@ -143,6 +148,7 @@ export const SelectBox: React.FC<SelectBoxProps> = ({
                                           >
                                             {isSelected ? <Check className="w-4" /> : null}
                                             {option.label}
+                                            {selectedList}
                                           </CommandItem>
                                       )
                                   })}
