@@ -1,22 +1,23 @@
 import { SelectBox } from "@/components/selectBox";
 import { Upload } from "@/components/resoUpload/upload";
 import { ProfileInfo } from "./messageComponents/profile";
-import { delegations } from "@/components/resoUpload/lists";
+import { delegations, issues } from "@/components/resoUpload/lists";
 import { CreateNewMessage } from "@/components/messageComponents/createNewMessage";
-
-import ResoContainer from "@/components/resoInfoBox";
+;
 import NewMessage from "@/components/messageComponents/receivedNewMessage";
+import { GetLatestApproved } from "@/components/getResoInfos";
 
-export function Dashboard(){
+export async function Dashboard(){
+
+  // key properties are needed for items in a list to uniquely identify each item. If you do not have this, you will get a warning in your console.
 
   return(
-
     <div className="grid-container">
         <div style={{background:"#5E859E"}}></div>
         <div style={{background:"#8CB1B0"}}></div>
         <div style={{background:"#C2CFE1"}}></div>
         <div className="p-4">
-        
+
         <div className="font-body mx-20 ">
           <div className="w-[26%]">
             <div className="text-4xl mt-20">&nbsp;&nbsp;Messages</div>
@@ -58,14 +59,7 @@ export function Dashboard(){
             </div>   
               <Upload />
             </div>
-          
-        
-          <div className="grid grid-cols-2">
-            <ResoContainer submitter="Turkey"/>
-            <ResoContainer submitter="Turkey"/>
-            <ResoContainer submitter="Turkey"/>
-            <ResoContainer submitter="Turkey"/>
-          </div>
+            <GetLatestApproved />
         </div>
 
         <br></br><br></br><br></br><br></br>

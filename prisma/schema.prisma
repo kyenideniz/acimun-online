@@ -14,15 +14,16 @@ model Approved {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   mainSub String
   committee String
-  resolutionNo String
+  resolutionNo String @unique
   questionOf String
   coSubs String
   link String
+  status String @default("Approved")
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
 }
 
-model Reso {
+model Passed {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   mainSub String @default("")
   committee String @default("default")

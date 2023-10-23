@@ -1,13 +1,20 @@
 import prismadb from "@/lib/prismadb";
 import { NextResponse } from "next/server";
 
+export async function GET() {
+  const get = await prismadb.approved.findMany({
+    orderBy: {
+      updatedAt:'desc',
+    },
+    take:4
+  })
+}
+
 export async function POST(req: Request) {
   try {
     console.log("waiting client")
     const resolution = await req.json()
     console.log("post data is: ", resolution)
-
-    console.log("trying", resolution.mainSub.label, typeof(resolution.mainSub.label), resolution.committee.label)
     
     const create = await prismadb.approved.create({
       data: {

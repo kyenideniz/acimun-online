@@ -37,7 +37,6 @@ export function PopUp(){
                 }
             })
             const data = await JSON.stringify(response);
-            console.log("data: ", data);
           
             toast({
                 title: "You submitted the following values:",
