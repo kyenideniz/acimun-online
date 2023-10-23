@@ -1,14 +1,14 @@
-import { Upload } from "@/components/resoUpload/upload";
-import NewMessage from "@/components/messageComponents/receivedNewMessage";
 import { SelectBox } from "@/components/selectBox";
+import { Upload } from "@/components/resoUpload/upload";
+import { ProfileInfo } from "./messageComponents/profile";
 import { delegations } from "@/components/resoUpload/lists";
 import { CreateNewMessage } from "@/components/messageComponents/createNewMessage";
-import { ProfileInfo } from "./messageComponents/profile";
+
 import ResoContainer from "@/components/resoInfoBox";
-import { InfoToast } from "@/components/infoToast";
+import NewMessage from "@/components/messageComponents/receivedNewMessage";
 
 export function Dashboard(){
-  
+
   return(
 
     <div className="grid-container">

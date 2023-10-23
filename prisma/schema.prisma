@@ -7,7 +7,7 @@ generator client {
 }
 datasource db {
   provider = "mongodb"
-  url      = env("DATABASE_URL")
+  url      = env("MONGODB_URI")
 }
 
 model Approved {
@@ -20,4 +20,10 @@ model Approved {
   link String
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
+}
+
+model Reso {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  mainSub String @default("")
+  committee String @default("default")
 }

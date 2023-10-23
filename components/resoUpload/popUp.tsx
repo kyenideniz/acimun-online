@@ -4,57 +4,53 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { toast } from "@/components/ui/use-toast"
 
-
-import { connect } from "@/api/server"
 import { useState } from "react"
-import { ToastAction } from "@/components/ui/toast"
 import { SelectBox, Option } from "@/components/selectBox"
 import { GA, delegations } from "@/components/resoUpload/lists"
 
-export var mainSubVal: string;
-export var committeeVal: string;
-export var resolutionNoVal:string;
-export var questionOfVal: string;
-export var coSubsVal: string;
-export var linkVal: string;
+export var isSubmittedVal: boolean;
 
 export function PopUp(){
     const [link, setLink] = useState("");
     const [resolutionNo, setResolutionNO] = useState("");
 
-    const [coSubs, setCoSubs] = useState<Option>()
-    const [mainSub, setMainSub] = useState<Option>()
-    const [committee, setCommittee] = useState<Option>()
-    const [questionOf, setQuestionOf] = useState<Option>()
+    const [coSubs, setCoSubs] = useState<Option>();
+    const [mainSub, setMainSub] = useState<Option>();
+    const [committee, setCommittee] = useState<Option>();
+    const [questionOf, setQuestionOf] = useState<Option>();
 
-    linkVal = link
-    resolutionNoVal = resolutionNo
-
-    mainSubVal = JSON.stringify(mainSub?.label)
-    committeeVal = JSON.stringify(committee?.label)
-    resolutionNoVal = JSON.stringify(resolutionNo)
-    questionOfVal = JSON.stringify(questionOf?.label)
-    coSubsVal = JSON.stringify(coSubs?.label)
-
-    function onClick() {
-        connect();
-        toast({
-            title: "Submitted",
-            description: 
-                <code className="text-black font-body">
-                    <div>Main Submitter: {mainSubVal ? mainSubVal:"Select"}</div> 
-                    <div>Comittee: {committeeVal ? committeeVal:"Select"} </div>
-                    <div>Resolution No: {resolutionNoVal ? resolutionNoVal:"Select"} </div>
-                    <div>Question of: {questionOfVal ? questionOfVal:"Select"} </div>
-                    <div>Co-Submitters: {coSubsVal ? coSubsVal:"Select"} </div>
-                    <div>Link: {linkVal ? linkVal:"Select"} </div>
-                </code>,
-            action: (
-                <ToastAction altText="Close">Close</ToastAction>
-            ),
-        })
-    }
-
+    const handleSubmit = async () => {
+        try {
+            const response = await fetch("/api/popUp", {
+                method: "POST",
+                body: JSON.stringify({
+                    mainSub: mainSub?.label ? mainSub: "N/A", 
+                    committee: committee?.label ? committee: "N/A",
+                    resolutionNo: resolutionNo ? resolutionNo: "N/A",
+                    questionOf: questionOf?.label ? questionOf: "N/A",
+                    coSubs: coSubs?.label ? coSubs: "N/A",
+                    link: link ? link:"N/A",
+                }),
+                headers:{
+                    "Content-Type": "application/json"
+                }
+            })
+            const data = await JSON.stringify(response);
+            console.log("data: ", data);
+          
+            toast({
+                title: "You submitted the following values:",
+                description: (
+                  <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+                    <code className="text-white">Submitted</code>
+                  </pre>
+                ),
+              })
+        } catch (error) {
+            console.log(error)
+        }
+    }; 
+    
     return(
         <div className="space-y-8">
                 <div className="mx-20 ">
@@ -79,7 +75,7 @@ export function PopUp(){
                     <div className="grid grid-cols-2">
                         <div className="py-2">Resolution No:</div>
                         <div className="left py-2 z-10">
-                            <Input className="w-[200px]" placeholder="Resolution No" value={resolutionNo} onChange={e => setResolutionNO(e.target.value)} />
+                            <Input className="w-[200px]" placeholder="Resolution No" value={resolutionNo} onChange={(e) => setResolutionNO(e.target.value)} />
                         </div>
                     </div>
                     <div className="grid grid-cols-2">
@@ -97,12 +93,12 @@ export function PopUp(){
                     <div className="grid grid-cols-2">
                         <div className="py-2">Link:</div>
                         <div className="left py-2 z-10">
-                            <Input className="w-[200px]" placeholder="Link" value={link} onChange={e => setLink(e.target.value)} />
+                            <Input className="w-[200px]" placeholder="Link" value={link} onChange={(e) => setLink(e.target.value)} />
                         </div>
                     </div>
                     <br></br><br></br>
                     <div className="flex items-center justify-center">
-                        <Button className="font-body font-thin text-lg bg-[#5E859E]" type="submit" onClick={onClick}>Upload</Button>
+                        <Button className="font-body font-thin text-lg bg-[#5E859E]" type="submit" onClick={handleSubmit}>Upload</Button>
                     </div>
                 <br></br>
                 </div>
