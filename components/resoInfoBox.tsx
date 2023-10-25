@@ -1,5 +1,8 @@
-import { link } from "fs";
-import Link from "next/link";
+"use client"
+
+import { useState } from 'react';
+
+export var idVal: string;
 
 interface ResoContainerProps{
     submitter: string;
@@ -7,14 +10,25 @@ interface ResoContainerProps{
     resolutionNo: string;
     issue: string;
     link: string;
+    id:string;
 }
 const ResoContainer: React.FC<ResoContainerProps> = ({
     submitter, 
     committee,
     resolutionNo,
     issue,
-    link
+    link,
+    id,
 }) => {
+    const [redirect, setRedirect] = useState("");
+    const [idVal1, setIdVal] = useState("");
+
+    const handleSubmit = async () => {
+        setRedirect(`/${[id]}/resolution`);
+        console.log(typeof(redirect), id)     
+        setIdVal(id);   
+        idVal = id;
+    }
 
     return(
         <div className="p-4">
@@ -27,7 +41,9 @@ const ResoContainer: React.FC<ResoContainerProps> = ({
                             <div>Committee: {committee} </div>
                             <div>Resolution No: {resolutionNo} </div>
                             <div>Question of: {issue} </div>
-                            <Link href={link} className="text-sm text-blue-400 underline" >Read More </Link>
+                            <button onClick= {handleSubmit} className="text-sm text-blue-400 underline" >Read More </button>
+                            <a target="_blank" onClick={handleSubmit} href={redirect} rel="noopener noreferrer">123</a>
+      
                         </div>
                     </div>
                 </div>

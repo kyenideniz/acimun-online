@@ -1,9 +1,13 @@
 import prismadb from "@/lib/prismadb";
+import idVal from "@/components/resoInfoBox"
 
 export async function ResoPage(){
+
+  var id = JSON.stringify(idVal);
+  console.log("idVal: ",idVal, "id:",id)
   const reso = await prismadb.approved.findUnique({
     where: {
-      id: "6536ba335208349a797318cc",
+      id: "6536f2505208349a797318ce",
     },
   })
 
@@ -21,7 +25,6 @@ export async function ResoPage(){
           <div className="py-2">Question of: {reso?.questionOf} </div>
           <div className="py-2">Co-Submitters: {reso?.coSubs} </div>
           <br></br><br></br><br></br><br></br>
-
           <iframe src="https://docs.google.com/document/d/e/2PACX-1vScEOCMGhLr3ysC4rHiqJQJOBO-wehidEW4rNijguHdBlaibknRRH_pZwvx7VPYBXkjVfU6oPZw5XcE/pub?embedded=true" className="h-[1050px] w-full shadow-md"></iframe>
           <br></br><br></br>
       
@@ -31,4 +34,3 @@ export async function ResoPage(){
 };
 
 export default ResoPage;
-        

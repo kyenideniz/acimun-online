@@ -8,6 +8,7 @@ export async function GET() {
     },
     take:4
   })
+  return new NextResponse(JSON.stringify(get), { status: 200 });
 }
 
 export async function POST(req: Request) {
@@ -32,3 +33,4 @@ export async function POST(req: Request) {
     console.log("error", error)  
   }
 };
+

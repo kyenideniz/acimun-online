@@ -14,7 +14,7 @@ model Approved {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   mainSub String
   committee String
-  resolutionNo String @unique
+  resolutionNo String @unique 
   questionOf String
   coSubs String
   link String
