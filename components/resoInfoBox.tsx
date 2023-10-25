@@ -41,8 +41,7 @@ const ResoContainer: React.FC<ResoContainerProps> = ({
                             <div>Committee: {committee} </div>
                             <div>Resolution No: {resolutionNo} </div>
                             <div>Question of: {issue} </div>
-                            <button onClick= {handleSubmit} className="text-sm text-blue-400 underline" >Read More </button>
-                            <a target="_blank" onClick={handleSubmit} href={redirect} rel="noopener noreferrer">123</a>
+                            <a target="_blank" onClick={handleSubmit} href={redirect} rel="noopener noreferrer"  className="text-sm text-blue-400 underline">Read More</a>
       
                         </div>
                     </div>
